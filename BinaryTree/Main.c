@@ -3,6 +3,26 @@
 
 #define MAXSTACK 100
 
+//二叉树 三叉链表
+typedef struct BinaryTree
+{
+	char data;
+	struct BinaryTree* parent, * lchild, * rchild;
+}BinaryTree, * pBinaryTree;
+
+//队列
+typedef struct Queue
+{
+	pBinaryTree data;
+	struct Queue* next;
+}Queue, * pQueue;
+
+//队列指针
+typedef struct
+{
+	pQueue front, rear;//头、尾指针
+}LinkQueue;
+
 int main()
 {
 	int i;
