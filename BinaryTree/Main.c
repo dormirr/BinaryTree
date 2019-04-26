@@ -30,6 +30,24 @@ int CreateBinaryTreeNULL(pBinaryTree* T)
 	return 1;
 }
 
+//œ˙ªŸ ˜
+void DelBinaryTree(pBinaryTree* T)
+{
+	if (*T)
+	{
+		if ((*T)->lchild)
+		{
+			DelBinaryTree(&(*T)->lchild);
+		}
+		if ((*T)->rchild)
+		{
+			DelBinaryTree(&(*T)->rchild);
+		}
+		free(*T);
+		*T = NULL; //∑¿“∞
+	}
+}
+
 int main()
 {
 	int i;
