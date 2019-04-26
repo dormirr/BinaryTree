@@ -23,6 +23,13 @@ typedef struct
 	pQueue front, rear;//头、尾指针
 }LinkQueue;
 
+//生成空树
+int CreateBinaryTreeNULL(pBinaryTree* T)
+{
+	*T = NULL;
+	return 1;
+}
+
 int main()
 {
 	int i;
