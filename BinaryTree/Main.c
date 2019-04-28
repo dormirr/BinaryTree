@@ -80,19 +80,6 @@ int CreateQueue(LinkQueue* Q)
 	return 1;
 }
 
-//若Q为空队列,则返回1,否则返回0
-int InspectQueue(LinkQueue Q)
-{
-	if (Q.front == Q.rear)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-
 int main()
 {
 	int i;
