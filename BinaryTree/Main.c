@@ -48,6 +48,26 @@ void DelBinaryTree(pBinaryTree* T)
 	}
 }
 
+//先序输入 无双亲指针的二叉树 完整的三叉列表需要调用这个函数
+void CreateBinaryTree1(pBinaryTree* T)
+{
+	char ch;
+	scanf("%c", &ch);
+	if (ch == ' ') //空
+	{
+		*T = NULL;
+	}
+	else
+	{
+		*T = (pBinaryTree)malloc(sizeof(BinaryTree));
+		if (!*T)
+			exit(0);
+		(*T)->data = ch; //生成根结点
+		CreateBinaryTree1(&(*T)->lchild); //生成左子树
+		CreateBinaryTree1(&(*T)->rchild); //生成右子树
+	}
+}
+
 int main()
 {
 	int i;
