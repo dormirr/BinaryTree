@@ -68,6 +68,18 @@ void CreateBinaryTree1(pBinaryTree* T)
 	}
 }
 
+//建一个空队列
+int CreateQueue(LinkQueue* Q)
+{
+	(*Q).front = (*Q).rear = (pQueue)malloc(sizeof(Queue));
+	if (!(*Q).front)
+	{
+		exit(0);
+	}
+	(*Q).front->next = NULL;
+	return 1;
+}
+
 int main()
 {
 	int i;
