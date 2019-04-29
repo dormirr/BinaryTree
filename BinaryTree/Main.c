@@ -93,6 +93,21 @@ int InspectQueue(LinkQueue Q)
 	}
 }
 
+//插入元素e 成为Q的新的队尾元素
+int InsertQueue(LinkQueue* Q, pBinaryTree e)
+{
+	pQueue p = (pQueue)malloc(sizeof(Queue));
+	if (!p)
+	{
+		exit(0);
+	}
+	p->data = e;
+	p->next = NULL;
+	(*Q).rear->next = p;
+	(*Q).rear = p;
+	return 1;
+}
+
 int main()
 {
 	int i;
