@@ -108,6 +108,26 @@ int InsertQueue(LinkQueue* Q, pBinaryTree e)
 	return 1;
 }
 
+//若队列不空,删除Q的队头元素,用e返回其值,并返回1,否则返回0
+int DelQueue(LinkQueue* Q, pBinaryTree* e)
+{
+	pQueue p;
+	if ((*Q).front == (*Q).rear) //队列为空
+	{
+		return 0;
+
+	}
+	p = (*Q).front->next;
+	*e = p->data;
+	(*Q).front->next = p->next;
+	if ((*Q).rear == p)
+	{
+		(*Q).rear = (*Q).front;
+	}
+	free(p);
+	return 1;
+}
+
 int main()
 {
 	int i;
