@@ -212,6 +212,21 @@ pBinaryTree ReturnPoint(pBinaryTree T, char e)
 	return NULL;
 }
 
+//若e是T的非根结点,则返回它的双亲,否则返回空
+char ReturnParent(pBinaryTree T, char e)
+{
+	pBinaryTree a;
+	if (T) //非空树
+	{
+		a = ReturnPoint(T, e); //a是结点e的指针
+		if (a && a != T) //存在结点e非根
+		{
+			return a->parent->data;
+		}
+	}
+	return ' ';
+}
+
 int main()
 {
 	int i;
