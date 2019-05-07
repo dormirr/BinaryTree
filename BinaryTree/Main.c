@@ -128,6 +128,35 @@ int DelQueue(LinkQueue* Q, pBinaryTree* e)
 	return 1;
 }
 
+//先序输入 构造三叉链表表示的二叉树
+int CreateBiTree2(pBinaryTree* T)
+{
+	LinkQueue q;
+	pBinaryTree a;
+	CreateBinaryTree1(T); //无双亲指针的三叉链表表示的二叉树
+	if (*T)
+	{
+		(*T)->parent = NULL;
+		CreateQueue(&q); //创建队列
+		InsertQueue(&q, *T); //根指针入队
+		while (!InspectQueue(q)) //队列不空
+		{
+			DelQueue(&q, &a); //出队,队列元素赋给a
+			if (a->lchild) //有左孩子
+			{
+				a->lchild->parent = a; //给左孩子的双亲指针赋值
+				InsertQueue(&q, a->lchild); //左孩子入队
+			}
+			if (a->rchild) //有右孩子
+			{
+				a->rchild->parent = a; //给右孩子的双亲指针赋值
+				InsertQueue(&q, a->rchild); //右孩子入队
+			}
+		}
+	}
+	return 1;
+}
+
 int main()
 {
 	int i;
