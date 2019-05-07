@@ -157,6 +157,19 @@ int CreateBiTree2(pBinaryTree* T)
 	return 1;
 }
 
+//·µ»ØTµÄ¸ù
+char ReturnRoot(pBinaryTree T)
+{
+	if (T)
+	{
+		return T->data;
+	}
+	else
+	{
+		return ' ';
+	}
+}
+
 int main()
 {
 	int i;
