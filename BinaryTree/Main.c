@@ -176,6 +176,12 @@ pBinaryTree ReturnNode(pBinaryTree p)
 	return p->data;
 }
 
+//给p所指结点赋值为value
+void AssignmentNode(pBinaryTree p, char value)
+{
+	p->data = value;
+}
+
 int main()
 {
 	int i;
