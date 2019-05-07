@@ -170,6 +170,12 @@ char ReturnRoot(pBinaryTree T)
 	}
 }
 
+//返回p所指结点的值
+pBinaryTree ReturnNode(pBinaryTree p)
+{
+	return p->data;
+}
+
 int main()
 {
 	int i;
