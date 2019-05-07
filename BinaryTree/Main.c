@@ -182,6 +182,36 @@ void AssignmentNode(pBinaryTree p, char value)
 	p->data = value;
 }
 
+//返回树中指向元素值为e的结点的指针
+pBinaryTree ReturnPoint(pBinaryTree T, char e)
+{
+	LinkQueue q;
+	pBinaryTree a;
+
+	if (T)
+	{
+		CreateQueue(&q); //创建队列
+		InsertQueue(&q, T); //根结点入队
+		while (!InspectQueue(q)) //队不空
+		{
+			DelQueue(&q, &a); //出队,队列元素赋给a
+			if (a->data == e)
+			{
+				return a;
+			}
+			if (a->lchild) //有左孩子
+			{
+				InsertQueue(&q, a->lchild); //入队左孩子
+			}
+			if (a->rchild) //有右孩子
+			{
+				InsertQueue(&q, a->rchild); //入队右孩子
+			}
+		}
+	}
+	return NULL;
+}
+
 int main()
 {
 	int i;
