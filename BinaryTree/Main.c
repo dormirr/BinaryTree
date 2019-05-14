@@ -315,6 +315,32 @@ void LevelOrderTraverse(pBinaryTree T, int(*Visit)(pBinaryTree))
 	}
 }
 
+//遍历调用
+int visitT(pBinaryTree T)
+{
+	if (T)
+	{
+		printf("%c是", T->data);
+	}
+	if (T->parent)
+	{
+		printf("%c", T->parent->data);
+		if (T->parent->lchild == T)
+		{
+			printf("的左孩子\n");
+		}
+		else
+		{
+			printf("的右孩子\n");
+		}
+	}
+	else
+	{
+		printf("根结点\n");
+	}
+	return 1;
+}
+
 int main()
 {
 	int i;
