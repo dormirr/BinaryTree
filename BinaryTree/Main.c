@@ -242,6 +242,21 @@ char ReturnLeftChild(pBinaryTree T, char e)
 	return ' ';
 }
 
+//返回e的右孩子 无则返回空
+char ReturnRightChild(pBinaryTree T, char e)
+{
+	pBinaryTree a;
+	if (T)
+	{
+		a = ReturnPoint(T, e); //a是结点e的指针
+		if (a && a->rchild) //T中存在结点e且e存在右孩子
+		{
+			return a->rchild->data; //返回e的右孩子的值
+		}
+	}
+	return ' ';
+}
+
 int main()
 {
 	int i;
