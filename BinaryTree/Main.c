@@ -257,6 +257,17 @@ char ReturnRightChild(pBinaryTree T, char e)
 	return ' ';
 }
 
+//ÏÈÐòµÝ¹é±éÀú
+void PreOrderTraverse(pBinaryTree T, int(*Visit)(pBinaryTree))
+{
+	if (T)
+	{
+		Visit(T);
+		PreOrderTraverse(T->lchild, Visit);
+		PreOrderTraverse(T->rchild, Visit);
+	}
+}
+
 int main()
 {
 	int i;
