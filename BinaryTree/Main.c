@@ -268,6 +268,17 @@ void PreOrderTraverse(pBinaryTree T, int(*Visit)(pBinaryTree))
 	}
 }
 
+//ÖÐÐòµÝ¹é±éÀú
+void InOrderTraverse(pBinaryTree T, int(*Visit)(pBinaryTree))
+{
+	if (T)
+	{
+		InOrderTraverse(T->lchild, Visit);
+		Visit(T);
+		InOrderTraverse(T->rchild, Visit);
+	}
+}
+
 int main()
 {
 	int i;
