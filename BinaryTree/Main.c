@@ -290,6 +290,31 @@ void PostOrderTraverse(pBinaryTree T, int(*Visit)(pBinaryTree))
 	}
 }
 
+//²ãĞò±éÀú
+void LevelOrderTraverse(pBinaryTree T, int(*Visit)(pBinaryTree))
+{
+	LinkQueue q;
+	pBinaryTree a;
+	if (T)
+	{
+		CreateQueue(&q);
+		InsertQueue(&q, T);
+		while (!InspectQueue(q))
+		{
+			DelQueue(&q, &a);
+			Visit(a);
+			if (a->lchild != NULL)
+			{
+				InsertQueue(&q, a->lchild);
+			}
+			if (a->rchild != NULL)
+			{
+				InsertQueue(&q, a->rchild);
+			}
+		}
+	}
+}
+
 int main()
 {
 	int i;
