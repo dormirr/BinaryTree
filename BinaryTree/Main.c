@@ -279,6 +279,17 @@ void InOrderTraverse(pBinaryTree T, int(*Visit)(pBinaryTree))
 	}
 }
 
+//ºóÐòµÝ¹é±éÀú
+void PostOrderTraverse(pBinaryTree T, int(*Visit)(pBinaryTree))
+{
+	if (T)
+	{
+		PostOrderTraverse(T->lchild, Visit);
+		PostOrderTraverse(T->rchild, Visit);
+		Visit(T);
+	}
+}
+
 int main()
 {
 	int i;
