@@ -401,6 +401,47 @@ void InOrder(pBinaryTree T, int(*Visit)(pBinaryTree))
 	}
 }
 
+//非递归后序遍历二叉树
+void PostOrder(pBinaryTree T, int(*Visit)(pBinaryTree))
+{
+	pBinaryTree stack[MAXSTACK], p;
+	int sign, top = -1;
+	if (T != NULL)
+	{
+		do
+		{
+			while (T != NULL)
+			{
+				top++;
+				stack[top] = T; //T下所有左节点入栈 包括根
+				T = T->lchild;
+			}
+
+			p = NULL;
+			sign = 1; //正在处理当前结点
+
+			while (top != -1 && sign)
+			{
+
+				T = stack[top]; //出栈
+
+				if (T->rchild == p) //右孩子不存在或右孩子已访问则访问T
+				{
+					Visit(T);
+					top--;
+					p = T; //p指向被访问的节点
+				}
+				else
+				{
+					T = T->rchild; //T指向右孩子节点
+
+					sign = 0; //处理非栈顶结点
+				}
+			}
+		} while (top != -1);
+	}
+}
+
 int main()
 {
 	int i;
