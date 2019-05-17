@@ -341,6 +341,38 @@ int visitT(pBinaryTree T)
 	return 1;
 }
 
+//非递归前序遍历二叉树
+void PreOrder(pBinaryTree T, int(*Visit)(pBinaryTree))
+{
+	pBinaryTree stack[MAXSTACK], p;
+	int top = -1;
+
+	if (T != NULL)
+	{
+		top++;
+		stack[top] = T; //根入栈
+
+		while (top > -1) //树不为空
+		{
+			p = stack[top];
+			top--;
+			Visit(p);
+
+			if (p->rchild != NULL) //右孩子入栈
+			{
+				top++;
+				stack[top] = p->rchild;
+			}
+
+			if (p->lchild != NULL) //左孩子入栈
+			{
+				top++;
+				stack[top] = p->lchild;
+			}
+		}
+	}
+}
+
 int main()
 {
 	int i;
